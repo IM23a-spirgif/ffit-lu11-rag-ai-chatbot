@@ -8,3 +8,11 @@ logging:
     ch.bzz.rag: DEBUG
   file:
     name: app.log
+
+vectorstore:
+  pgvector:
+    enabled: true
+    table-name: vector_store
+    indexType: "IVFFlat"
+    lists: 100
+    distance-type: "COSINE_DISTANCE"
