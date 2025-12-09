@@ -15,7 +15,7 @@ public class VectorTableInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
         int dimensions = embeddingModel.dimensions();
-        jdbcTemplate.execute("CREATE EXTENSION IF NOT EXISTS vector;");
+        // jdbcTemplate.execute("CREATE EXTENSION IF NOT EXISTS vector;");
         jdbcTemplate.execute("""
             CREATE TABLE IF NOT EXISTS vector_store (
                 id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

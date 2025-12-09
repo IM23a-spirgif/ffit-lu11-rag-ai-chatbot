@@ -39,10 +39,15 @@ public class DocumentService {
             throw new IllegalArgumentException("Invalid text, chunkSize or overlap value.");
         }
         List<String> result = new ArrayList<>();
-
-        // TODO: implement logic
-
-        log.debug("Created {} chunks with chunkSize {} and overlap {}", result.size(), chunkSize, overlap);
+        int start = 0;
+        while (start < text.length()) {
+            int end = Math.min(start + chunkSize, text.length());
+            result.add(text.substring(start, end));
+            if (end == text.length()) {
+                break;
+            }
+            start = start + (chunkSize - overlap);
+        }
         return result;
     }
 }
